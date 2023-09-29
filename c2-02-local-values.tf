@@ -8,5 +8,6 @@ locals {
     owners      = local.owners
     environment = local.environment
   }
-  eks_cluster_name = "${local.name}-${var.cluster_name}"  
+  eks_cluster_name = "EKS_Sandbox" #<-- Setting to EKS_Sandbox for now...
+  #eks_cluster_name = "${local.name}-${var.cluster_name}"  
 } 
