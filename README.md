@@ -1,7 +1,6 @@
 ## EKS_Sandbox
 
 #### TODO:
-- Add CoreDNS
 - Automate prometheus & grafana install
     
     - helm install prometheus prometheus-community/prometheus --namespace monitoring

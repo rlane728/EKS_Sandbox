@@ -19,7 +19,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
 
   scaling_config {
     desired_size = 2
-    min_size     = 2
+    min_size     = 0  #<--- Allow us to shut down our nodes when not in use
     max_size     = 2
   }
 
