@@ -17,11 +17,14 @@ resource "aws_eks_node_group" "eks_ng_public" {
     ec2_ssh_key = "eks-terraform-key"
   }
 
+# Disable the autoscaler so we can stop nodes without destroying them.
+/*
   scaling_config {
     desired_size = 2
-    min_size     = 0  #<--- Allow us to shut down our nodes when not in use
+    min_size     = 2
     max_size     = 2
   }
+*/
 
   # Desired max percentage of unavailable worker nodes during node group update.
   update_config {

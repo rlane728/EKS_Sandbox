@@ -1,16 +1,13 @@
 ## EKS_Sandbox
 
 #### TODO:
-- Automate prometheus & grafana install
+- Automate prometheus/grafana/operator install
     
-    - helm install prometheus prometheus-community/prometheus --namespace monitoring
-    - helm install grafana grafana/grafana --namespace monitoring
-
+    - helm install monitoring prometheus-community/kube-prometheus-stack --namespace monitoring
+    - kubectl get secret grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+    - kubectl --namespace monitoring port-forward \<grafana pod\> 3000
+    
 - Install stress on nodes
     
     - sudo amazon-linux-extras install epel -y
     - sudo yum install stress -y
-
-- Install and configure Prometheus Operator (Manual for now)
-
-    - https://github.com/prometheus-operator/prometheus-operator
