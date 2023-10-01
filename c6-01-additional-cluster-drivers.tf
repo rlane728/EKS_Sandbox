@@ -6,6 +6,8 @@ resource "aws_eks_addon" "aws-ebs-csi-driver" {
   addon_name                  = "aws-ebs-csi-driver"
   addon_version               = "v1.23.0-eksbuild.1"
   resolve_conflicts_on_update = "PRESERVE"
+
+  depends_on = [aws_eks_node_group.eks_ng_public]
 }
 
 # Adding CoreDNS
@@ -15,4 +17,6 @@ resource "aws_eks_addon" "aws-coredns-driver" {
   addon_name                  = "coredns"
   addon_version               = "v1.10.1-eksbuild.4"
   resolve_conflicts_on_update = "PRESERVE"
+
+  depends_on = [aws_eks_node_group.eks_ng_public]
 }
